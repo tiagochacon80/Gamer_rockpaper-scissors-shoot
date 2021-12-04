@@ -1,0 +1,63 @@
+<script>
+    
+    // function imprimirEscolha (escolha, nome) {
+    //         if(escolha == pedra){
+    //             document.write(nome + " escolheu pedra" + "<br>");
+    //         }else if (escolha == tesoura){
+    //             document.write(nome + " escolheu tesoura" + "<br>");
+    //         }else if (escolha == papel){
+    //             document.write(nome + " escolheu papel" + "<br>");
+    //         }
+    // }
+
+    function retornarEscolha (escolha, nome) {
+            if(escolha == pedra){
+                return (nome + " escolheu pedra" + "<br>");
+            }else if (escolha == tesoura){
+                return(nome + " escolheu tesoura" + "<br>");
+            }else if (escolha == papel){
+                return(nome + " escolheu papel" + "<br>");
+            }
+    }
+    
+    let jogador = 0;
+    let computador = 0;
+    const pedra = 1;
+    const papel = 2;
+    const tesoura = 3;
+    
+    jogador = parseInt(prompt("Escolha um numero:"));  
+    computador = Math.floor(Math.random() * (3 - 1 + 1) + 1); 
+
+    if(jogador >= 1 && jogador <= 3) {
+
+            let mensagemJogador = retornarEscolha(jogador, "Jogador");
+            let mensagemComputador = retornarEscolha(computador, "Computador");      
+           // imprimirEscolha (jogador, "Jogador");
+            document.write(mensagemJogador);
+            // imprimirEscolha (computador, "Computador");
+            document.write(mensagemComputador);
+
+          if (jogador == pedra && computador == tesoura) {
+              document.write("Jogador venceu!!!" + " Pedra ganha de tesoura");
+          }else if(jogador == pedra && computador == papel){
+                document.write("Computador venceu" + " Papel ganha da pedra");          
+          }else if(jogador == pedra && computador == pedra){    
+                document.write("Sem vencedor");
+          }else if(jogador == papel && computador == tesoura){
+                document.write("Computador venceu" + " tesoura ganha de papel");
+          }else if(jogador == papel && computador == pedra){
+                document.write("jogador venceu" + " papel ganha da pedra");
+          }else if(jogador == papel && computador == papel){
+              document.write("Sem vencedor");
+          }else if(jogador == tesoura && computador == pedra){
+              document.write("Computador ganhou" + " Pedra ganha de tesoura");
+          }else if(jogador == tesoura && computador == tesoura){
+              document.write("Ninguem venceu");
+          }else if(jogador == tesoura && computador == papel){
+              document.write("jogador venceu" + " tesoura ganha de papel")
+          }  
+    }else {
+        document.write("Numero invalido");
+    }
+</script>
